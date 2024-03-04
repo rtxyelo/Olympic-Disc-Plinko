@@ -1,0 +1,2 @@
+# Olympic-Disc-Plinko
+ Embark on an exhilarating journey to ancient Greece with 'Olympic Disc Plinko: Sporting Showdown.' Test your skills in the thrilling world of discus throwing as you navigate the challenging Plinko board set against the backdrop of Olympia. Aim for glory, strategize your tosses, and outsmart opponents to secure victory in this dynamic and competitive mobile game. Immerse yourself in the spirit of the ancient Olympics and experience the excitement of a true sporting showdown!
