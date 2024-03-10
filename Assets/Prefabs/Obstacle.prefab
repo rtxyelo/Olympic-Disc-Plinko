@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3362390571689927307}
   m_Layer: 5
   m_Name: Obstacle
-  m_TagString: Obstacle
+  m_TagString: Obtacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 2904298352320741386}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31a08d6b515d853448245905438ff672, type: 2}
+  m_Material: {fileID: 6200000, guid: babede1686e23794287533f5c8405bd6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

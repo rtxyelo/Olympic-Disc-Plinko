@@ -7,20 +7,20 @@ TagManager:
   - GameMusic
   - Exit
   - Disc
-  - Obstacle
+  - Obtacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MultipleZones
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ZeroZone
+  - OneZone
+  - TwoZone
+  - ThreeZone
+  - FourZone
+  - FiveZone
   - 
   - 
   - 
