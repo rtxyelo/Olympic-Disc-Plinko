@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DiscBehaviour : MonoBehaviour
@@ -43,11 +41,14 @@ public class DiscBehaviour : MonoBehaviour
 
     private ArrowBehaviour _arrowBehaviour;
 
+    private AnchorGameObject _anchorGameObject;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.bodyType = RigidbodyType2D.Static;
         _arrowBehaviour = GameObject.Find("Arrow").GetComponent<ArrowBehaviour>();
+        _anchorGameObject = GetComponent<AnchorGameObject>();
     }
 
     private void Update()
@@ -110,7 +111,9 @@ public class DiscBehaviour : MonoBehaviour
         if (_isGameStarted)
         {
             _isGameStarted = false;
+            _anchorGameObject.enabled = false;
             var dir = new Vector2(_arrowBehaviour.TipPosition.x, 1f).normalized;
+            //var dir = new Vector2(-0.45f, 1f);
             _rb.bodyType = RigidbodyType2D.Dynamic;
             _rb.AddForce(dir * _impulseSpeed, ForceMode2D.Impulse);
             _rb.angularVelocity = 1500f;

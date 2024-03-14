@@ -44,11 +44,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
-  spriteExtrude: 3
-  spriteMeshType: 1
+  spriteExtrude: 7
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: -0.64, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 29, z: 0, w: 27}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1

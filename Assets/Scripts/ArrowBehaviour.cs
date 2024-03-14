@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class ArrowBehaviour : MonoBehaviour
 {
@@ -9,9 +6,9 @@ public class ArrowBehaviour : MonoBehaviour
     [SerializeField]
     private float m_rapidity = 3.2f;
 
-    private RectTransform m_rectTransform;
+    private Transform m_transform;
 
-    private RectTransform m_tipTransform;
+    private Transform m_tipTransform;
 
     private Vector3 m_tipPosition;
 
@@ -23,24 +20,24 @@ public class ArrowBehaviour : MonoBehaviour
 
     private void Start()
     {
-        m_rectTransform = GetComponent<RectTransform>();
-        m_tipTransform = gameObject.transform.GetChild(0).GetComponent<RectTransform>();
+        m_transform = GetComponent<Transform>();
+        m_tipTransform = gameObject.transform.GetChild(0).GetComponent<Transform>();
     }
 
     private void Update()
     {
-        if (m_rectTransform != null && !_isGamePaused)
+        if (m_transform != null && !_isGamePaused)
         {
-            if (m_rectTransform.rotation.z >= 1f)
+            if (m_transform.localRotation.z >= 1f)
                 m_index = Vector3.up;
-            else if (m_rectTransform.rotation.z <= 0f)
+            else if (m_transform.localRotation.z <= 0f)
                 m_index = Vector3.down;
 
             var rotation = Quaternion.LookRotation(new Vector3(0, 0, 180), m_index);
-            m_rectTransform.transform.rotation = Quaternion.RotateTowards(m_rectTransform.transform.rotation, rotation, m_rapidity);
+            m_transform.transform.localRotation = Quaternion.RotateTowards(m_transform.transform.localRotation, rotation, m_rapidity);
 
             m_tipPosition = m_tipTransform.position;
-            //Debug.Log("m_tipPosition " + m_tipPosition);
+            Debug.Log("m_tipPosition " + m_tipPosition.normalized);
 
         }
     }

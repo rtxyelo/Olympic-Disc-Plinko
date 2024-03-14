@@ -7177,7 +7177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReset: 0
-  isSetKeys: 1
+  isSetKeys: 0
   currentLevel: 1
   maxLevel: 47
   musicVolume: 0.2
