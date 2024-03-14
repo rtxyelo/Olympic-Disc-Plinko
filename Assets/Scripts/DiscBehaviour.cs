@@ -29,7 +29,7 @@ public class DiscBehaviour : MonoBehaviour
 
     private bool _isGameFinished = false;
 
-    private bool _spacePressed = false;  // Debug
+    //private bool _spacePressed = false;  // Debug
 
     private bool _isGamePaused = false;
 
@@ -89,7 +89,7 @@ public class DiscBehaviour : MonoBehaviour
                     _rb.angularDrag += 10f;
                     _rb.gravityScale = 0f;
                     _isGameFinished = true;
-                    Debug.Log("BORDER!!");
+                    Debug.Log("Disc stops");
                 }
 
                 //if (Mathf.Abs(_rb.angularVelocity) < _angularVelosityThreshold)
@@ -119,19 +119,19 @@ public class DiscBehaviour : MonoBehaviour
             _rb.angularVelocity = 1500f;
         }
 
-        // Debug
-        if (Input.GetKey(KeyCode.Space) && !_spacePressed)
-        {
-            var dir = new Vector2(_arrowBehaviour.TipPosition.x, 1f).normalized;
-            _rb.bodyType = RigidbodyType2D.Dynamic;
-            _rb.AddForce(dir * _impulseSpeed, ForceMode2D.Impulse);
-            _rb.angularVelocity = 1500f;
-            _spacePressed = true;
-        }
-        else if (!Input.GetKey(KeyCode.Space))
-        {
-            _spacePressed = false;
-        }
+        //// Debug
+        //if (Input.GetKey(KeyCode.Space) && !_spacePressed)
+        //{
+        //    var dir = new Vector2(_arrowBehaviour.TipPosition.x, 1f).normalized;
+        //    _rb.bodyType = RigidbodyType2D.Dynamic;
+        //    _rb.AddForce(dir * _impulseSpeed, ForceMode2D.Impulse);
+        //    _rb.angularVelocity = 1500f;
+        //    _spacePressed = true;
+        //}
+        //else if (!Input.GetKey(KeyCode.Space))
+        //{
+        //    _spacePressed = false;
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

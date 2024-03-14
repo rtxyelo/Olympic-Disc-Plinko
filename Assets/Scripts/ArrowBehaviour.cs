@@ -16,7 +16,7 @@ public class ArrowBehaviour : MonoBehaviour
 
     private Vector3 m_index = Vector3.down;
 
-    private bool _isGamePaused = false;
+    private bool _isGamePaused = true;
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class ArrowBehaviour : MonoBehaviour
             m_transform.transform.localRotation = Quaternion.RotateTowards(m_transform.transform.localRotation, rotation, m_rapidity);
 
             m_tipPosition = m_tipTransform.position;
-            Debug.Log("m_tipPosition " + m_tipPosition.normalized);
+            //Debug.Log("m_tipPosition " + m_tipPosition.normalized);
 
         }
     }

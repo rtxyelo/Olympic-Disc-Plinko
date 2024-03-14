@@ -16,6 +16,9 @@ public class PauseBehaviour : MonoBehaviour
     [SerializeField]
     private ArrowBehaviour _arrowBehaviour;
 
+    [SerializeField]
+    private SceneBehaviour sceneBehaviour;
+
     public void ContinueGame()
     {
         _screenBlur.SetActive(false);
@@ -23,5 +26,15 @@ public class PauseBehaviour : MonoBehaviour
         _discBehaviour.ResumeGame();
         _arrowBehaviour.ResumeGame();
         gameObject.SetActive(false);
+    }
+
+    public void GoToMainMenu()
+    {
+        sceneBehaviour.LoadSceneByName("MainMenuScene");
+    }
+
+    public void ReplayGame()
+    {
+        sceneBehaviour.RestartScene();
     }
 }

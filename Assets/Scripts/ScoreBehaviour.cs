@@ -13,6 +13,8 @@ public class ScoreBehaviour : MonoBehaviour
 
     private DiscMultipleTrigger discMultipleTrigger;
 
+    public int FinalScore => discBehaviour.GameScore * discMultipleTrigger.MultipleValue;
+
     private void Start()
     {
         var gameScoreObj = GameObject.Find("GameScore");
@@ -42,7 +44,7 @@ public class ScoreBehaviour : MonoBehaviour
                     " game score is " + discBehaviour.GameScore +
                     " RESULT SCORE " + discBehaviour.GameScore * discMultipleTrigger.MultipleValue);
         scoreTextAnimator.Play("ScoreChange");
-        scoreText.text = (discBehaviour.GameScore * discMultipleTrigger.MultipleValue).ToString();
+        scoreText.text = FinalScore.ToString();
     }
 
     private void OnDestroy()
