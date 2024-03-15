@@ -12,7 +12,15 @@ public class SoundBehaviour : MonoBehaviour
     [SerializeField] private AudioSource _btnSound;
     [SerializeField] private Slider _volumeSlider;
 
-    private string _musicVolumeKey = "MusicVolumeKey";
+    [SerializeField]
+    private AudioSource winSound;
+
+    [SerializeField]
+    private AudioSource loseSound;
+
+    private readonly string _musicVolumeKey = "MusicVolumeKey";
+
+    private GameBehaviour gameBehaviour;
 
     /// <summary>
     /// Initializes the volume settings based on PlayerPrefs when the script is started.
@@ -30,6 +38,15 @@ public class SoundBehaviour : MonoBehaviour
             _volumeSlider.value = PlayerPrefs.GetFloat(_musicVolumeKey);
         }
         _music.volume = PlayerPrefs.GetFloat(_musicVolumeKey);
+        winSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f);
+        loseSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f);
+
+        gameBehaviour = FindObjectOfType<GameBehaviour>();
+        if (gameBehaviour != null)
+        {
+            gameBehaviour.GameWinEvent += GameWin;
+            gameBehaviour.GameLoseEvent += GameLose;
+        }
     }
 
     /// <summary>
@@ -49,5 +66,18 @@ public class SoundBehaviour : MonoBehaviour
     {
         _btnSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey);
         _btnSound.Play();
+    }
+
+    private void GameWin()
+    {
+        _music.Stop();
+        winSound.Play();
+        _music.PlayDelayed(2f);
+    }
+    private void GameLose()
+    {
+        _music.Stop();
+        loseSound.Play();
+        _music.PlayDelayed(2.2f);
     }
 }

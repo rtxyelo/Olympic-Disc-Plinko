@@ -8,6 +8,9 @@ public class DiscBehaviour : MonoBehaviour
     [SerializeField]
     private float _velosityThreshold = 0.08f;
 
+    [SerializeField]
+    private AudioSource obtacleHitSound;
+
     //[SerializeField]
     //private float _angularVelosityThreshold = 300f;
 
@@ -43,12 +46,15 @@ public class DiscBehaviour : MonoBehaviour
 
     private AnchorGameObject _anchorGameObject;
 
+    private readonly string _musicVolumeKey = "MusicVolumeKey";
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.bodyType = RigidbodyType2D.Static;
         _arrowBehaviour = GameObject.Find("Arrow").GetComponent<ArrowBehaviour>();
         _anchorGameObject = GetComponent<AnchorGameObject>();
+        obtacleHitSound.volume = PlayerPrefs.GetFloat(_musicVolumeKey, 0.2f);
     }
 
     private void Update()
@@ -140,6 +146,7 @@ public class DiscBehaviour : MonoBehaviour
         {
             gameScore += 10;
             ScoreChange();
+            obtacleHitSound.Play();
         }
     }
 
